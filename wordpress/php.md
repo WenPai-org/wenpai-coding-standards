@@ -130,7 +130,7 @@ foreach ( $items as $item ) {
 
 ## 使用elseif，而不是else if
 
-if|else if与if|elseif冒号语法不兼容。因此，请使用if|elseif。
+if\|else if与if\|elseif冒号语法不兼容。因此，请使用if\|elseif。
 
 ## 声明数组
 
