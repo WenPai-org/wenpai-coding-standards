@@ -75,4 +75,55 @@ switch ( $type ) {
 }
 ```
 
-> PS：应在行的开头使用tab来缩进，而在行的中间则可以使用空格来对齐。
+PS：应在行的开头使用tab来缩进，而在行的中间则可以使用空格来对齐。
+
+## 大括号样式
+
+大括号应按以下所示样式用于所有代码：
+
+```php 
+if ( condition ) {
+    action1();
+    action2();
+} elseif ( condition2 && condition3 ) {
+    action3();
+    action4();
+} else {
+    defaultaction();
+}
+```
+
+如果你有一个很长的代码块，请考虑是否可以将其分解为两个或更多个较短的代码块、函数或方法，以降低复杂性，提高测试的简便性并提高可读性。
+
+你应该始终使用大括号，无论按PHP语法其是否可以省略：
+
+```php 
+if ( condition ) {
+    action0();
+}
+ 
+if ( condition ) {
+    action1();
+} elseif ( condition2 ) {
+    action2a();
+    action2b();
+}
+ 
+foreach ( $items as $item ) {
+    process_item( $item );
+}
+```
+
+请注意，要求使用大括号仅表示禁止单语句内联控制结构。你可以随意使用[其他语法](https://www.php.net/manual/en/control-structures.alternative-syntax.php)来控制结构（例如if/endif，while/endwhile），尤其是将其嵌入HTML的模板中，例如：
+
+```php 
+<?php if ( have_posts() ) : ?>
+    <div class="hfeed">
+        <?php while ( have_posts() ) : the_post(); ?>
+            <article id="post-<?php the_ID() ?>" class="<?php post_class() ?>">
+                <!-- ... -->
+            </article>
+        <?php endwhile; ?>
+    </div>
+<?php endif; ?>
+```
