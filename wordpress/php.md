@@ -2,7 +2,7 @@
 layout: default
 title: PHP编码规范
 nav_order: 2
-has_children: true
+parent: WordPress官方编码规范
 permalink: /wordpress
 ---
 
