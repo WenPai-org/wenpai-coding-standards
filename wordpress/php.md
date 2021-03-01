@@ -137,3 +137,19 @@ if|else if与if|elseif冒号语法不兼容。因此，请使用if|elseif。
 array( 1, 2, 3 )与短数组语法[ 1, 2, 3 ]相比，使用长数组语法声明数组通常更具可读性，尤其是对于那些视觉困难的人。此外，它对初学者更具描述性。
 
 数组必须使用长数组语法声明。
+
+## 闭包（匿名函数）
+
+在适当的情况下，可以为回调传递一个闭包而不是创建一个新函数。例如：
+
+```php 
+$caption = preg_replace_callback(
+    '/<[a-zA-Z0-9]+(?: [^<>]+>)*/',
+    function ( $matches ) {
+        return preg_replace( '/[\r\n\t]+/', ' ', $matches[0] );
+    },
+    $caption
+);
+```
+
+不能将闭包作为过滤器或钩子的回调传递方式，因为它们不能被remove_action()/remove_filter()删除（有关解决此问题的建议，请参见[＃46635](https://core.trac.wordpress.org/ticket/46635)）。
