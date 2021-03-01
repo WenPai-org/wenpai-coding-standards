@@ -153,3 +153,28 @@ $caption = preg_replace_callback(
 ```
 
 不能将闭包作为过滤器或钩子的回调传递方式，因为它们不能被remove_action()/remove_filter()删除（有关解决此问题的建议，请参见[＃46635](https://core.trac.wordpress.org/ticket/46635)）。
+
+## 多行函数调用
+
+将函数调用拆分为多行时，每个参数必须位于单独的行上。单行内联注释可以占用其自己的行。
+
+每个参数最多只能占用一行。必须将多行参数值分配给一个变量，然后将该变量传递给函数调用。
+
+```php 
+$bar = array(
+    'use_this' => true,
+    'meta_key' => 'field_name',
+);
+$baz = sprintf(
+    /* translators: %s: Friend's name */
+    esc_html__( 'Hello, %s!', 'yourtextdomain' ),
+    $friend_name
+);
+ 
+$a = foo(
+    $bar,
+    $baz,
+    /* translators: %s: cat */
+    sprintf( __( 'The best pet is a %s.' ), 'cat' )
+);
+```
