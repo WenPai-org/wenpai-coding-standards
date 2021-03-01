@@ -1,0 +1,8 @@
+remote_theme: pmarsceill/just-the-docs
+
+title: 文派编码规范
+description: 本文档是文派开源项目编码标准及规范要求
+
+aux_links:
+  "在GitHub上帮助完善":
+    - "https://github.com/WenPai-org/wenpai-coding-standards"
