@@ -1,2 +1,3 @@
-# wenpai-coding-standards
-文派插件编码标准及规范要求
+# 文派开源编码规范
+
+浏览地址：[https://wenpai-org.github.io/wenpai-coding-standards/](https://wenpai-org.github.io/wenpai-coding-standards/)
