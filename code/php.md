@@ -184,3 +184,38 @@ $a = foo(
 应优先使用与Perl兼容的正则表达式（[PCRE](http://php.net/pcre)，`preg_` 函数），而不要使用与之对应的POSIX风格。切勿使用/e开关，而应使用preg_replace_callback。
 
 将单引号字符串用于正则表达式是最方便的，因为与双引号字符串相反，它们只有两个元序列：\'和\\。
+
+## 打开和关闭PHP标签
+
+在HTML块中嵌入多行PHP代码段时，PHP打开和关闭标签必须单独位于一行上。
+
+正确（多行）：
+
+```php 
+function foo() {
+    ?>
+        <div>
+        <?php
+        echo bar(
+            $baz,
+            $bat
+        );
+        ?>
+        </div>
+    <?php
+}
+```
+
+正确（单行）：
+
+```php 
+<input name="<?php echo esc_attr( $name ); ?>" />
+```
+
+错误：
+
+```php 
+if ( $a === $b ) { ?>
+<some html>
+<?php }
+```
