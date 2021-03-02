@@ -19,7 +19,7 @@ permalink: /
 
 ### 编码规范
 
- * PHP编码规范
+ * [PHP编码规范](/code/php.md)
  * HTML编码规范
  * CSS编码规范
  * JS编码规范
