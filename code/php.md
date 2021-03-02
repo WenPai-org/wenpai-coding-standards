@@ -464,4 +464,77 @@ if ( true === $the_force ) {
 
 这适用于==、!=、===和!==。<>、<=或>=的尤达条件式明显很难阅读，所以不对于这些表达式不使用尤达条件式。
 
+## 聪明的代码
 
+通常，可读性比巧妙或简短更为重要。
+
+```php 
+isset( $var ) || $var = some_function();
+```
+
+尽管以上内容很巧妙，但如果你不熟悉，可能还需要花费一些时间去理解。因此，最好这样写：
+
+```php 
+if ( ! isset( $var ) ) {
+    $var = some_function();
+}
+```
+
+除非绝对必要，否则不应该使用松散比较，因为它们的结果可能会误导你（松散比较将会对右侧类型强制转换为左侧类型，比如0转"0"）。
+
+正确：
+
+```php 
+if ( 0 === strpos( '文派', 'foo' ) ) {
+    echo __( '你好文派！' );
+}
+```
+
+错误：
+```php 
+if ( 0 == strpos( '文派', 'foo' ) ) {
+    echo __( '你好文派！' );
+}
+```
+
+不得将赋值语句放在条件中。
+
+正确：
+
+```php 
+$data = $wpdb->get_var( '...' );
+if ( $data ) {
+    // Use $data
+}
+```
+
+错误：
+
+```php 
+if ( $data = $wpdb->get_var( '...' ) ) {
+    // Use $data
+}
+```
+
+在switch语句中，可以有多个空的case落入一个公共代码块。但如果一个case包含一个代码块却没有break而是进入下一个case，则必须对此进行明确注释。
+
+```php 
+switch ( $foo ) {
+    case 'bar':       // 正确，一个空的case，可以不加任何注释，直接落空。
+    case 'baz':
+        echo $foo;    // 错误，带有代码块的case如果不加break就必须添加明确注释。
+    case 'cat':
+        echo 'mouse';
+        break;        // 正确，含有break时不需要评论。
+    case 'dog':
+        echo 'horse';
+        // no break   // 正确，一个case可以注释以明确提及不break的原因。
+    case 'fish':
+        echo 'bird';
+        break;
+}
+```
+
+永远不要使用goto语句。
+
+eval()构造非常危险，并且无法保护。此外，PHP 7.2中不推荐使用内部执行eval()的create_function()函数。这两个都不能使用。
