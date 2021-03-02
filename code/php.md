@@ -325,3 +325,22 @@ if ( $foo && ( $bar || $baz ) ) { ...
  
 my_function( ( $x - 1 ) * 5, $y );
 ```
+
+## 格式化SQL语句
+
+在格式化SQL语句时，你可以将它分成几行，如果它足够复杂，可以进行缩进。不过，大多数语句都是一行的。始终将语句的SQL部分大写，如UPDATE或WHERE。
+
+用于更新数据库的函数在传参时不应对SQL进行斜杠转义。转义操作应该尽可能在SQL执行时进行，同时最好使用$wpdb->prepare()进行转义处理。
+
+$wpdb->prepare()是一种处理SQL查询的转义、引用和内部转换的方法。它使用sprintf()对数据处理。例子：
+
+```php 
+$var = "dangerous'"; // 可能需要转义的原始数据
+$id = some_foo_number(); // 期望这是整数数据，但是不能确定
+ 
+$wpdb->query( $wpdb->prepare( "UPDATE $wpdb->posts SET post_title = %s WHERE ID = %d", $var, $id ) );
+```
+
+%s用于字符串占位符，%d用于整数占位符。请注意，它们不仅仅只是“引用”！$wpdb->prepare()将为我们进行转义和引用。这样做的好处是，我们不必记住手动使用esc_sql()，而且一目了然。
+
+
