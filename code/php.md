@@ -418,3 +418,21 @@ function eat( $what, $args ) {
 eat ( 'noodles', array( 'speed' => 'moderate' ) );
 ```
 
+## 使用插值方式命名动态挂钩
+
+动态挂钩应该使用内插而不是串联来命名，以提高可读性和可发现性。
+
+动态挂钩是在其标记名称中包含动态值的挂钩，例如：
+
+```php 
+{$new_status}_{$post->post_type} (publish_post).
+```
+
+挂钩标签中使用的变量应使用大括号{}括起来，完整的外部标签名称应使用双引号引起来。这是为了确保PHP可以正确解析字符串中插入的变量。
+
+```php 
+do_action( "{$new_status}_{$post->post_type}", $post->ID, $post );
+```
+
+在可能的情况下，标记名称中的动态值也应尽可能简洁明了。$user_id比$this->id更能自我描述。
+
