@@ -240,4 +240,88 @@ if ( $a === $b ) { ?>
 
 在每行代码的末尾删除尾随空格。最好省略文件末尾的PHP结束标记。如果使用标记，请确保删除尾随空格。
 
+## 空格的使用
 
+始终在逗号后以及逻辑，比较，字符串和赋值运算符的两侧放置空格。
+
+```php 
+x === 23
+foo && bar
+! foo
+array( 1, 2, 3 )
+$baz . '-5'
+$term .= 'X'
+```
+
+在if、elseif、foreach、for和switch块的左括号和右括号两边加空格。
+
+```php 
+foreach ( $foo as $bar ) { ...
+```
+
+定义函数时：
+
+```php 
+function my_function( $param1 = 'foo', $param2 = 'bar' ) { ...
+ 
+function my_other_function() { ...
+```
+
+调用函数时：
+
+```php 
+my_function( $param1, func_param( $param2 ) );
+my_other_function();
+```
+
+执行逻辑比较时：
+
+```php 
+if ( ! $foo ) { ...
+```
+
+类型强制转换必须为小写。总是使用类型转换的缩写形式，(int)而不是(integer)、(bool)而不是(boolean)。对于浮点型使用(float)：
+
+```php 
+foreach ( (array) $foo as $bar ) { ...
+ 
+$foo = (bool) $bar;
+```
+
+引用数组项时，如果索引是变量，则仅在索引周围包含空格，例如：
+
+```php 
+$x = $foo['bar']; // 正确
+$x = $foo[ 'bar' ]; // 错误
+ 
+$x = $foo[0]; // 正确
+$x = $foo[ 0 ]; // 错误
+ 
+$x = $foo[ $bar ]; // 正确
+$x = $foo[$bar]; // 错误
+```
+
+在switch块中，case语句的冒号前不能有空格。
+
+```php 
+switch ( $foo ) {
+    case 'bar': // 正确
+    case 'ba' : // 错误
+}
+```
+
+类似地，在返回类型声明的冒号之前不应该有空格。
+
+```php 
+function sum( $a, $b ): float {
+    return $a + $b;
+}
+```
+
+除非另有规定，否则括号内应该有空格。
+
+```php 
+if ( $foo && ( $bar || $baz ) ) { ...
+ 
+my_function( ( $x - 1 ) * 5, $y );
+```
