@@ -347,4 +347,37 @@ $wpdb->query( $wpdb->prepare( "UPDATE $wpdb->posts SET post_title = %s WHERE ID 
 
 避免直接接触数据库。如果有一个已定义的函数可以获取所需的数据，请使用它。数据库抽象（使用函数而不是查询）有助于保持代码向前兼容，并且在结果缓存在内存中的情况下，它可以快很多倍。
 
+## 命名约定
 
+在变量、action/filter和函数名称中使用小写字母（切勿使用camelCase）。通过下划线将单词分开。不要不必要地缩写变量名，让代码明确且具有自我说明性。
+
+```php 
+function some_name( $some_variable ) { [...] }
+```
+
+类名应使用下划线分隔的大写单词。任何首字母缩写词都应全部大写。
+
+```php 
+class Walker_Category extends Walker { [...] }
+class WP_HTTP { [...] }
+```
+
+常量应全部大写，并用下划线分隔单词：
+
+```php 
+define( 'DOING_AJAX', true );
+```
+
+文件应使用小写字母描述性地命名。使用连字符分隔单词。
+
+```php 
+my-plugin-name.php
+```
+
+类文件名应基于带有类前缀的类名，并且类名中的下划线用连字符代替，例如WP_Error变为：
+
+```php 
+class-wp-error.php
+```
+
+该文件命名标准适用于所有具有类的当前文件和新文件。
