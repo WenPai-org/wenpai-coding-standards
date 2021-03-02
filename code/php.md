@@ -381,3 +381,40 @@ class-wp-error.php
 ```
 
 该文件命名标准适用于所有具有类的当前文件和新文件。
+
+## 函数参数的自解释标志值
+
+调用函数时，应优先使用字符串值而不是true或false。
+
+```php 
+// 错误
+function eat( $what, $slowly = true ) {
+...
+}
+eat( 'mushrooms' );
+eat( 'mushrooms', true ); // 真正的意思是什么？
+eat( 'dogfood', false ); // false是什么意思？
+```
+
+由于PHP不支持命名参数，因此标志的值没有意义，并且每次遇到上述示例的函数调用时，我们都必须搜索函数定义。 通过使用描述性字符串值而不是布尔值，可以使代码更具可读性。
+
+```php 
+// 正确
+function eat( $what, $speed = 'slowly' ) {
+...
+}
+eat( 'mushrooms' );
+eat( 'mushrooms', 'slowly' );
+eat( 'dogfood', 'quickly' );
+```
+
+当需要更多的单词来描述函数参数时，$args数组可能是更好的模式。
+
+```php 
+// 更好的
+function eat( $what, $args ) {
+...
+}
+eat ( 'noodles', array( 'speed' => 'moderate' ) );
+```
+
