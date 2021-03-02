@@ -436,3 +436,17 @@ do_action( "{$new_status}_{$post->post_type}", $post->ID, $post );
 
 在可能的情况下，标记名称中的动态值也应尽可能简洁明了。$user_id比$this->id更能自我描述。
 
+## 三元运算符
+
+[三元运算符](http://en.wikipedia.org/wiki/Ternary_operation)很好，但是始终让它们测试语句是否为真，而不是假。否则，它将变得混乱。（一个例外是使用!empty()，因为这里测试false通常更直观。）
+
+不得使用短三元运算符。
+
+例如：
+
+```php 
+// (if statement is true) ? (do this) : (else, do this);
+$musictype = ( 'jazz' === $music ) ? 'cool' : 'blah';
+// (if field is not empty ) ? (do this) : (else, do this);
+```
+
