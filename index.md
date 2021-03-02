@@ -31,3 +31,8 @@ permalink: /
 
  * 单元测试
  * 集成测试
+
+### 应用发布规范
+
+ * readme.txt文件编写规范
+ * WordPress SVN发布规范
