@@ -178,3 +178,9 @@ $a = foo(
     sprintf( __( 'The best pet is a %s.' ), 'cat' )
 );
 ```
+
+## 正则表达式
+
+应优先使用与Perl兼容的正则表达式（[PCRE](http://php.net/pcre)，`preg_` 函数），而不要使用与之对应的POSIX风格。切勿使用/e开关，而应使用preg_replace_callback。
+
+将单引号字符串用于正则表达式是最方便的，因为与双引号字符串相反，它们只有两个元序列：\'和\\。
