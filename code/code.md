@@ -1,9 +1,9 @@
 ---
 layout: default
-title: WordPress官方编码规范
+title: 编码规范
 nav_order: 2
 has_children: true
-permalink: /wordpress
+permalink: /code
 ---
 
 # WordPress官方编码规范

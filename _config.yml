@@ -1,7 +1,7 @@
 remote_theme: pmarsceill/just-the-docs
 
-title: 文派编码规范
-description: 本文档是文派系列项目编码标准及规范要求
+title: 文派开发规范
+description: 本文档是文派系列项目开发标准及规范要求
 
 aux_links:
   "在GitHub上帮助完善":
