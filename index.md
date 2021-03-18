@@ -30,7 +30,9 @@ permalink: /
  * [PHP注释规范](/comment/php.md)
  * JS注释规范
 
-### Git提交规范
+### Git规范
+
+ * [代码提交规范](/git/push.md)
 
 ### 测试规范
 
