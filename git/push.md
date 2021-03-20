@@ -9,7 +9,7 @@ parent: Git规范
 
 ## 前言
 
-本规范在[AngularJS](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#heading=h.greljkmo14y0)的基础上结合WordPress.org的规范融合出了自己的风格。
+本规范在[AngularJS社区代码提交规范](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#heading=h.greljkmo14y0)的基础上结合WordPress.org的规范融合出了自己的风格。
 
 ## 提交日志的格式
 
