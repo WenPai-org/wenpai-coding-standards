@@ -1,7 +1,7 @@
 ---
 layout: default
 title: readme.txt文件编写规范
-nav_order: 1
+nav_order: 2
 parent: 应用发布规范
 ---
 
