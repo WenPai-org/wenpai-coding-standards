@@ -45,5 +45,5 @@ permalink: /
 ### 应用发布规范
 
  * [元信息编写规范](/release/meta.md)
- * readme.txt文件编写规范
+ * [readme.txt文件编写规范](/release/readme.txt.md)
  * WordPress SVN发布规范
